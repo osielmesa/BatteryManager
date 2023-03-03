@@ -11,7 +11,9 @@ function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   const { BatteryModule } = NativeModules; // here we use the name returned in our getName method of BatteryModule java class
   const onPress = () => {
-    BatteryModule.nativeLogger('RN to Android', 'This is a log comming from JS');
+    BatteryModule.nativeLogger('RN to Android', 'This is a log comming from JS', (response: string) => {
+      console.log(response);
+    });
   };
 
   return (
