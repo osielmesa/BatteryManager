@@ -10,8 +10,13 @@ import { SafeAreaView, StatusBar, useColorScheme, View, NativeModules, Button, S
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   const { BatteryModule } = NativeModules; // here we use the name returned in our getName method of BatteryModule java class
-  const onPress = () => {
-    BatteryModule.nativeLogger('RN to Android', 'This is a log comming from JS');
+  const onPress = async () => {
+    try {
+      const res = await BatteryModule.nativeLogger('RN to Android', 'This is a log coming from JS');
+      console.log(res);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
