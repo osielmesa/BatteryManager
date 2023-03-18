@@ -6,10 +6,14 @@
  */
 
 import React from 'react';
-import { SafeAreaView, StatusBar, useColorScheme, View, Button, StyleSheet } from 'react-native';
+import { SafeAreaView, StatusBar, useColorScheme, View, NativeModules, Button, StyleSheet } from 'react-native';
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-  const onPress = async () => {};
+  const { BatteryModule } = NativeModules; // here we use the name of our swift class
+
+  const onPress = () => {
+    BatteryModule.nativeLogger('RN to iOS', 'This is a log coming from JS');
+  };
 
   return (
     <SafeAreaView style={styles.container}>
