@@ -11,7 +11,7 @@ import Foundation
 class BatteryModule: NSObject {
   
   @objc
-  func nativeLogger(tag: String, description: String) {
+  func nativeLogger(_ tag: NSString, withDescription description: NSString) {
     print("\(tag), \(description)");
   }
   

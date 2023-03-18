@@ -11,6 +11,6 @@
 
 @interface RCT_EXTERN_MODULE(BatteryModule, NSObject) // Exposing our swift module to JS
 
-RCT_EXTERN_METHOD(nativeLogger) // Exposing our swift method to JS
+RCT_EXTERN_METHOD(nativeLogger: (NSString)tag withDescription:(NSString)description) // Exposing our swift method to JS
 
 @end
